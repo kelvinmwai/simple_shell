@@ -16,13 +16,13 @@
 extern char **environ;
 extern __sighandler_t signal(int __sig, __sighandler_t __handler);
 
-/* handle built ins */
+/* handle built in functions */
 int checks(char **inp, char *buf);
 void user_prompt(void);
 int interact(info_t *info);
-char **tokenizer(char *rin);
-char *tst_pth(char **pth, char *cmd);
-char *append_path(char *path, char *comm);
+char **tokenize(char *rin);
+char *tst_pth(char **pth, char *comm);
+char *append_path(char *pth, char *comm);
 int handle_builtin(char **comm, char *rin);
 void exit_cmd(char **comm, char *rin);
 
@@ -38,7 +38,7 @@ char *_strnch(char *st, char ch);
 void exec(char *cmd, char **inp);
 char *find_path(void);
 
-/* helper function for efficient free */
+/* util functions */
 void free_buff(char **buff);
 
 struct builtin

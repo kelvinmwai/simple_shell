@@ -2,40 +2,40 @@
 
 /**
 * append_path - adds path to specific command
-* @path: path of the command
-* @command: command entered by user
+* @pth: path of the command
+* @comm: command entered by user
 *
 * Return: buffer containing command with path |NULL on failure
 */
-char *append_path(char *path, char *command)
+char *append_path(char *pth, char *comm)
 {
 	char *buff;
 	size_t x = 0, y = 0;
 
-	if (command == 0)
-		command = "";
+	if (comm == 0)
+		comm = "";
 
-	if (path == 0)
-		path = "";
+	if (pth == 0)
+		pth = "";
 
-	buff = malloc(sizeof(char) * (_strlen(path) + _strlen(command) + 2));
+	buff = malloc(sizeof(char) * (_strlen(pth) + _strlen(comm) + 2));
 	if (!buff)
 		return (NULL);
 
-	while (path[x])
+	while (pth[x])
 	{
-		buf[x] = path[x];
+		buff[x] = pth[x];
 		x++;
 	}
 
-	if (path[x - 1] != '/')
+	if (pth[x - 1] != '/')
 	{
 		buff[x] = '/';
 		x++;
 	}
-	while (command[y])
+	while (comm[y])
 	{
-		buff[x + y] = command[y];
+		buff[x + y] = comm[y];
 		x++;
 	}
 	buff[x + y] = '\0';
