@@ -16,4 +16,3 @@ int checks(char **inp, char *buf)
 	}
 	return (0);
 }
-

@@ -14,14 +14,14 @@ int main(int agc, char **agv, char *env[])
 	size_t buffsize = 0;
 	ssize_t linesize = 0;
 	char **command = NULL, **paths = NULL;
-	(void)env, (void)av;
+	(void)env, (void)agv;
 	if (agc < 1)
 		return (-1);
 	signal(SIGINT, handle_signal);
 	while (1)
 	{
-		free_buffers(command);
-		free_buffers(paths);
+		free_buff(command);
+		free_buff(paths);
 		free(pathcommand);
 		user_prompt();
 		linesize = getline(&line, &buffsize, stdin);
@@ -32,15 +32,15 @@ int main(int agc, char **agv, char *env[])
 
 		if (line[linesize - 1] == '\n')
 			line[linesize - 1] = '\0';
-		command = tokenizer(line);
+		command = tokenize(rin);
 
 		if (command == NULL || *command == NULL || **command == '\0')
 			continue;
-		if (checker(command, line))
+		if (checks(command, line))
 			continue;
 		path = find_path();
 		paths = tokenize(path);
-		pathcommand = test_path(paths, command[0]);
+		pathcommand = tst_pth(paths, command[0]);
 
 		if (!pathcommand)
 			perror(agv[0]);
@@ -49,7 +49,7 @@ int main(int agc, char **agv, char *env[])
 	}
 	if (linesize < 0 && flags.interactive)
 		write(STDERR_FILENO, "\n", 1);
-	free(line);
+	free(rin);
 	return (0);
 }
 

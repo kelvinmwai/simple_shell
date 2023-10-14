@@ -19,7 +19,7 @@ extern __sighandler_t signal(int __sig, __sighandler_t __handler);
 /* handle built in functions */
 int checks(char **inp, char *buf);
 void user_prompt(void);
-int interact(info_t *info);
+int interact(ino_t *info);
 char **tokenize(char *rin);
 char *tst_pth(char **pth, char *comm);
 char *append_path(char *pth, char *comm);
@@ -58,5 +58,5 @@ struct flags
 	bool interactive;
 } flags;
 
-#endif /* SHELL_H */
+#endif
 

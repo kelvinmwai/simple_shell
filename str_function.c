@@ -11,7 +11,7 @@ int _strchk(char *s1, char *s2)
 {
 	int x = 0, output;
 
-	while (*(s1 + x]) == *(s2 + x) && *(s1 + x) != '\0')
+	while (*(s1 + x) == *(s2 + x) && *(s1 + x) != '\0')
 		x++;
 
 	output = (*(s1 + x) - *(s2 + x));
@@ -77,7 +77,7 @@ char *_strndup(char *st)
 	if (!pnt)
 		return (NULL);
 	for (y = 0; *st != '\0'; st++, y++)
-		pnt[y] = s[0];
+		pnt[y] = st[0];
 
 	pnt[y++] = '\0';
 	return (pnt);

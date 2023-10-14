@@ -4,7 +4,7 @@
  * exec - executes any commands entered by a user
  *@cmd: command
  *@inp:vector array of pointers to user commands
- * Return: 0 (success)
+ *Return: 0 (success)
  */
 void exec(char *cmd, char **inp)
 {
@@ -20,7 +20,7 @@ void exec(char *cmd, char **inp)
 		execve(cmd, inp, env);
 		perror(cmd);
 		free(cmd);
-		free_buffers(inp);
+		free_buff(inp);
 		exit(98);
 	}
 	else
