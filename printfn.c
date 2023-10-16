@@ -1,3 +1,4 @@
+
 #include "shell.h"
 
 /**
@@ -23,7 +24,7 @@ int print_st(char *st)
 
 	while (st[y] != '\0')
 	{
-		_putchar(s[y]);
+		_putchar(st[y]);
 		y++;
 	}
 

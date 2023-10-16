@@ -1,15 +1,14 @@
 #include "shell.h"
 
-
 /**
- * interact – checks whether shell is in interactive mode
- * @info: struct address
- *
- * Return: 1 if interactive mode and 0 if otherwise
+ *is_interract- checks whether shell is in interactive mode
+ *@h: the signal number
+ *Return: nothing
  */
-int interact(info_t *info)
+
+void is_interract(int h)
 {
-	return (isatty(STDIN_FILENO) && info->readfd <= 2);
+	(void)h;
+	write(STDERR_FILENO, "\n", 1);
+	write(STDERR_FILENO, "$ ", 2);
 }
-
-

@@ -38,14 +38,14 @@ int _strlen(char *s)
 }
 
 /**
-* _strncmp - compares two strings up to n bytes
+* _strcmp - compares two strings up to n bytes
 * @s1: first string compared
 * @s2: second string compared
 * @n: number of bytes
 *
 * Return: difference between s1 and s2
 */
-int _strncmp(char *s1, char *s2, int n)
+int _strcmp(char *s1, char *s2, int n)
 {
 	int x;
 

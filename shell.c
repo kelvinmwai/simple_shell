@@ -17,7 +17,7 @@ int main(int agc, char **agv, char *env[])
 	(void)env, (void)agv;
 	if (agc < 1)
 		return (-1);
-	signal(SIGINT, handle_signal);
+	signal(SIGINT, is_interract);
 	while (1)
 	{
 		free_buff(command);
@@ -32,7 +32,7 @@ int main(int agc, char **agv, char *env[])
 
 		if (line[linesize - 1] == '\n')
 			line[linesize - 1] = '\0';
-		command = tokenize(rin);
+		command = tokenize(line);
 
 		if (command == NULL || *command == NULL || **command == '\0')
 			continue;
@@ -45,11 +45,11 @@ int main(int agc, char **agv, char *env[])
 		if (!pathcommand)
 			perror(agv[0]);
 		else
-			execution(pathcommand, command);
+			exec(pathcommand, command);
 	}
 	if (linesize < 0 && flags.interactive)
 		write(STDERR_FILENO, "\n", 1);
-	free(rin);
+	free(line);
 	return (0);
 }
 

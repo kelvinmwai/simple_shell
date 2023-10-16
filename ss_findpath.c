@@ -1,7 +1,7 @@
 #include "shell.h"
 
 /**
-* find_path - finds the path from the entire environment
+* find_path - traverse the entire environment to find path
 * Return: path | NULL if not found
 */
 char *find_path(void)
@@ -11,7 +11,7 @@ char *find_path(void)
 
 	while (*env)
 	{
-		if (_strncmp(*env, "PATH=", 5) == 0)
+		if (_strcmp(*env, "PATH=", 5) == 0)
 		{
 			path = *env;
 			while (*path && y < 5)

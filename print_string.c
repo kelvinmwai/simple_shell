@@ -1,18 +1,18 @@
 #include "shell.h"
 
 /**
-* print_str - prints the environment string to stdout
+* print_envr - prints the environment string to stdout
 *
 * Return: 0
 */
-void print_str(void)
+void print_envr(void)
 {
 	int i = 0;
-	char **env = environ;
+	char **envr = environ;
 
-	while (env[i])
+	while (envr[i])
 	{
-		write(STDOUT_FILENO, (const void *)env[x], _strlen(env[i]));
+		write(STDOUT_FILENO, (const void *)envr[i], _strlen(envr[i]));
 		write(STDOUT_FILENO, "\n", 1);
 		i++;
 	}

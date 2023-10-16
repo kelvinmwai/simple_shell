@@ -11,7 +11,7 @@ int checks(char **inp, char *buf)
 		return (1);
 	else if (**inp == '/')
 	{
-		execution(inp[0], inp);
+		exec(inp[0], inp);
 		return (1);
 	}
 	return (0);
