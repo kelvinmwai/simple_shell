@@ -12,13 +12,14 @@ char *append_path(char *pth, char *comm)
 	char *buff;
 	size_t x = 0, y = 0;
 
-	if (comm == 0)
+	if (comm == NULL)
 		comm = "";
 
-	if (pth == 0)
+	if (pth == NULL)
 		pth = "";
 
 	buff = malloc(sizeof(char) * (_strlen(pth) + _strlen(comm) + 2));
+
 	if (!buff)
 		return (NULL);
 
@@ -37,6 +38,7 @@ char *append_path(char *pth, char *comm)
 	{
 		buff[x + y] = comm[y];
 		x++;
+		y++;
 	}
 	buff[x + y] = '\0';
 	return (buff);
