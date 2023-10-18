@@ -9,11 +9,11 @@
 */
 int handle_builtin(char **comm, char *rin)
 {
-	struct builtin builtin = {"envr", "exit"};
+	struct builtin builtin = {"env", "exit"};
 
-	if (_strchk(*comm, builtin.envr) == 0)
+	if (_strchk(*comm, builtin.env) == 0)
 	{
-		print_envr();
+		print_env();
 		return (1);
 	}
 	else if (_strchk(*comm, builtin.exit) == 0)

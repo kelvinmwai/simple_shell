@@ -26,7 +26,7 @@ char *append_path(char *pth, char *comm);
 int handle_builtin(char **comm, char *rin);
 void exit_cmd(char **comm, char *rin);
 
-void print_envr(void);
+void print_env(void);
 
 /* string handlers */
 int _strchk(char *s1, char *s2);
@@ -43,7 +43,7 @@ void free_buff(char **buff);
 
 struct builtin
 {
-	char *envr;
+	char *env;
 	char *exit;
 } builtin;
 
